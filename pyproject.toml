@@ -228,7 +228,7 @@ format = "simple"
 
 [tool.codespell]
 skip = "./matRad,*/matRad/*,*.ipynb"
-ignore-words-list = "coo,HEL"
+ignore-words-list = "coo,HEL,Varian"
 
 [tool.pydocstringformatter]
 write = true

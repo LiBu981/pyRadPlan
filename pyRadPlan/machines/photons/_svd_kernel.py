@@ -3,6 +3,7 @@ from typing import Any
 from typing_extensions import Self
 import numpy as np
 from pydantic import (
+    AliasChoices,
     Field,
     computed_field,
     field_validator,
@@ -52,7 +53,9 @@ class PhotonSVDKernel(PyRadPlanBaseModel):
     penumbra: float = Field(
         default=5.0,
         description="The penumbra of an open field as FWHM at Isocenter",
-        alias="penumbarFWHMatIso",
+        alias="penumbraFWHMatIso",
+        # The misspelled alias was the only one read up to now; dumps may still carry it
+        validation_alias=AliasChoices("penumbraFWHMatIso", "penumbarFWHMatIso", "penumbra"),
     )
 
     # Tabulated kernel data
